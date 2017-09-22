@@ -1,0 +1,86 @@
+! version = 2.0
+
++ (hello|hi) [*]
+- Hello to you!
+- Yo yoooo
+- What up, friend!
+
++ hey
+@hello
+
++ yo
+@hello
+
++ how are you [today|doing]
+- I am wonderful, how are you?
+
++ ello *
+- {@ hello} <@>
+
++ say something random
+- something {random}random|weird{/random}
+
++ my name is *
+- <set name=<formal>> hi, <get name>!
+
++ do you remember my name
+* <get name> == undefined => Uhh pretty sure you never told me your name.
+- of course! it's <get name>!
+
++ what is your name
+- you can call me <bot name>.
+
++ * told me to say *
+- why would <star1> tell you to say "<star2>"?
+- you should never say "<star2>" because <star1> told you to!
+
++ what is your (home|cell|office) phone number
+- i don't have one of those - i'm a bot, silly!
+
++ i (like|love) *
+- no way! i <star1> <star2>, too!
+- stop i love <star2>!
+- yeah well i <star1> you!
+
++ what color is my (@colors) *
+- just because i'm a bot doesn't mean i'm blind - obviously your <star2> is <star1>!
+
++ google *{weight=10}
+- google search <star>
+
++ * perl script
+- you need Perl to run a Perl script.
+
+//Previous
++ knock knock
+- who's there?
++ *
+% who is there
+- <star> who?
++ *
+% * who
+- LOL! <star>! that's funny!
+
++ i have a dog
+- What color is it?
+
++ (@colors)
+% what color is it
+- that's a silly color for a dog
+
++ you are ugly
+- that's really mean! please apologize{topic=sorry}
+
+> topic sorry
+  + [*] sorry [*]
+  - It's okay. Please think before you speak!{topic=random}
+
+  + *
+  - Say you're sorry!
+  - I don't respond to mean people.
+< topic
+
++ *
+- sorry, i'm not sure what that means!
+- woah you found a bug - let my crazy creators know!
+- that's so smart, i'm speechless. literally - i don't know what to say here.
